@@ -44,9 +44,10 @@ cd /etc/apache2/sites-available/
 sudo touch wordpress.conf
 
 # Заполнение wordpress.conf
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
 sudo bash -c 'cat <<EOL > wordpress.conf
 <VirtualHost *:80>
-    ServerName 192.168.0.103
+    ServerName $IP_ADDRESS
     DocumentRoot /var/www/html/wordpress
     <Directory /var/www/html/wordpress>
         AllowOverride All
