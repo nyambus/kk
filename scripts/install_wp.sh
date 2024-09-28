@@ -12,13 +12,14 @@ apt-get install php8.2 php8.2-cli php8.2-common php8.2-imap php8.2-redis php8.2-
 apt install mariadb-server -y
 
 # Настройка базы данных
-mariadb <<EOF
+MYSQL_ROOT_PASSWORD='kk'  # Укажите пароль для root
+sudo mysql -u root -p$MYSQL_ROOT_PASSWORD <<EOF
 CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'kk'; 
-CREATE DATABASE 'wordpress'; 
+CREATE DATABASE wordpress; 
 GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost'; 
 FLUSH PRIVILEGES; 
-EXIT;
 EOF
+
 
 # Установка последней версии WordPress
 cd /var/www/html
@@ -43,11 +44,10 @@ sed -i "s/password_here/kk/" wp-config.php
 
 # Создание конфигурационного файла для Apache
 cd /etc/apache2/sites-available/
-touch wordpress.conf
 
 # Заполнение wordpress.conf
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
-bash -c 'cat <<EOL > wordpress.conf
+bash -c "cat <<EOL > wordpress.conf
 <VirtualHost *:80>
     ServerName $IP_ADDRESS
     DocumentRoot /var/www/html/wordpress
@@ -57,7 +57,8 @@ bash -c 'cat <<EOL > wordpress.conf
     ErrorLog \${APACHE_LOG_DIR}/error.log
     CustomLog \${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-EOL'
+EOL"
+
 
 # Активация модуля перезаписи и конфигурации сайта
 a2enmod rewrite
