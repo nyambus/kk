@@ -13,4 +13,4 @@ adduser IvanPopov_IT --allow-bad-names << EOF
 EOF
 
 mkdir /home/IvanPopov_IT/FilesForMyFirstJob
-ln -s /var/www/html/wordpress/wp-includes/user.php /home/IvanovPopov_IT/FilesForMyFirstJob/
+ln -s /var/www/html/wordpress/wp-includes/user.php /home/IvanPopov_IT/FilesForMyFirstJob/
