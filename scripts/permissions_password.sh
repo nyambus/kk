@@ -12,5 +12,6 @@ adduser IvanPopov_IT --allow-bad-names << EOF
 12345
 EOF
 
-mkdir /home/IvanPopov_IT/FilesForMyFirstJob
-ln -s /var/www/html/wordpress/wp-includes/user.php /home/IvanPopov_IT/FilesForMyFirstJob/
+usermod -s /usr/sbin/nologin IvanPopov_IT
+
+bash vsftpd.sh
