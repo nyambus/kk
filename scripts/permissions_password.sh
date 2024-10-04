@@ -13,5 +13,3 @@ adduser IvanPopov_IT --allow-bad-names << EOF
 EOF
 
 usermod -s /usr/sbin/nologin IvanPopov_IT
-
-bash vsftpd.sh
