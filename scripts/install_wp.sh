@@ -14,7 +14,7 @@ apt install mariadb-server -y
 # Настройка базы данных
 MYSQL_ROOT_PASSWORD='kk'  # Укажите пароль для root
 mysql -u root -p$MYSQL_ROOT_PASSWORD <<EOF
-CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'kk'; 
+CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'GdE0Mne2D5hD'; 
 CREATE DATABASE wordpress; 
 GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost'; 
 FLUSH PRIVILEGES; 
@@ -40,28 +40,44 @@ mv wp-config-sample.php wp-config.php
 # Изменение конфигурации wp-config.php
 sed -i "s/database_name_here/wordpress/" wp-config.php
 sed -i "s/username_here/wordpress/" wp-config.php
-sed -i "s/password_here/kk/" wp-config.php
+sed -i "s/password_here/GdE0Mne2D5hD/" wp-config.php
 
 # Создание конфигурационного файла для Apache
 cd /etc/apache2/sites-available/
 
+#Создание сертификатов
+mkdir /etc/ssl/wordpress/
+openssl genrsa -out /etc/ssl/wordpress/wordpress.key 2048
+openssl req -new -key ваш_ключ.key -out /etc/ssl/wordpress/wordpress.csr
+openssl x509 -req -days 365 -in /etc/ssl/wordpress/wordpress.csr -signkey /etc/ssl/wordpress/wordpress.key -out /etc/ssl/wordpress/wordpress.crt
+
 # Заполнение wordpress.conf
-IP_ADDRESS=$(hostname -I | awk '{print $1}')
-bash -c "cat <<EOL > wordpress.conf
-<VirtualHost *:80>
-    ServerName $IP_ADDRESS
-    DocumentRoot /var/www/html/wordpress
-    <Directory /var/www/html/wordpress>
-        AllowOverride All
-    </Directory>
-    ErrorLog \${APACHE_LOG_DIR}/error.log
-    CustomLog \${APACHE_LOG_DIR}/access.log combined
+a2enmod rewrite
+a2enmod ssl
+
+echo '<VirtualHost *:80>
+        ServerName 192.168.122.205
+        DocumentRoot /var/www/html/wordpress/
+        Errorlog ${APACHE_LOG_DIR}/wordpress.log
+        Customlog ${APACHE_LOG_DIR}/wordpress.log combined
+        
+        RewriteEngine On
+        RewriteCond %{SERVER_PORT} !^443$
+        RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 </VirtualHost>
-EOL"
+<VirtualHost *:443>
+        ServerName 192.168.122.205
+        DocumentRoot /var/www/html/wordpress
+        SSLEngine on
+        SSLCertificateFile /etc/ssl/wordpress/wordpress.crt
+        SSLCertificateKeyFile /etc/ssl/wordpress/wordpress.key
+
+        Errorlog ${APACHE_LOG_DIR}/wordpress.log
+        Customlog ${APACHE_LOG_DIR}/wordpress.log combined
+</VirtualHost>' > /etc/apache2/sites-available/wordpress.conf
 
 
 # Активация модуля перезаписи и конфигурации сайта
-a2enmod rewrite
 a2ensite wordpress.conf
 
 # Проверка синтаксиса конфигурации Apache
