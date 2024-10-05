@@ -2,8 +2,8 @@
 
 #Смена пароля для рута
 passwd root << EOF
-S>V5>pk@t4*JQV4U
-S>V5>pk@t4*JQV4U
+SV5pk@t4JQV4U
+SV5pk@t4JQV4U
 EOF
 
 #Пользователь для брутфорса фтп
