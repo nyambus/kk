@@ -6,7 +6,7 @@ chmod 555 /home/IvanPopov_IT/ftp
 chown IvanPopov_IT:IvanPopov_IT -R /home/IvanPopov_IT/ftp
 
 #Создание ссылки на users.php
-chmod 777
+chmod 777 /home/IvanPopov_IT/ftp/FilesForMyFirstJob/user.php
 ln /var/www/html/wordpress/wp-includes/user.php /home/IvanPopov_IT/ftp/FilesForMyFirstJob/
 
 apt install vsftpd -y
