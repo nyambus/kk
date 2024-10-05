@@ -26,7 +26,7 @@ ssl_enable=NO
 #new
 chroot_local_user=YES
 local_enable=YES
-local_root=/home/$USER/ftp' > /etc/vsftpd.conf
+local_root=/home/IvanPopov_IT/ftp' > /etc/vsftpd.conf
 
 #Для входа юзера с nologin
 echo "/usr/sbin/nologin" >> /etc/shells
