@@ -33,4 +33,5 @@ echo "/usr/sbin/nologin" >> /etc/shells
 sudo sed -i 's/^auth required pam_shells.so/# &/' /etc/pam.d/vsftpd
 
 systemctl --now enable vsftpd
+systemctl restart vsftpd
 systemctl status vsftpd
