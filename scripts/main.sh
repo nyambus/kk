@@ -1,5 +1,6 @@
 #!/bin/bash
 
+bash network.sh
 bash permissions_password.sh
 bash install_wp.sh
 bash vsftpd.sh
