@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash permissions_passwords.sh
+bash permissions_password.sh
 bash install_wp.sh
 bash vsftpd.sh
 bash sudoers.sh
