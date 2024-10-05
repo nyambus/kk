@@ -48,7 +48,7 @@ cd /etc/apache2/sites-available/
 #Создание сертификатов
 mkdir /etc/ssl/wordpress/
 openssl genrsa -out /etc/ssl/wordpress/wordpress.key 2048
-openssl req -new -key ваш_ключ.key -out /etc/ssl/wordpress/wordpress.csr
+openssl req -new -key /etc/ssl/wordpress/wordpress.key -out /etc/ssl/wordpress/wordpress.csr
 openssl x509 -req -days 365 -in /etc/ssl/wordpress/wordpress.csr -signkey /etc/ssl/wordpress/wordpress.key -out /etc/ssl/wordpress/wordpress.crt
 
 # Заполнение wordpress.conf
