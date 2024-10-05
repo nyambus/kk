@@ -12,7 +12,7 @@ apt-get install php8.2 php8.2-cli php8.2-common php8.2-imap php8.2-redis php8.2-
 apt install mariadb-server -y
 
 # Настройка базы данных
-MYSQL_ROOT_PASSWORD='kk'  # Укажите пароль для root
+MYSQL_ROOT_PASSWORD='SV5pk@t4JQV4U'  # Укажите пароль для root
 mysql -u root -p$MYSQL_ROOT_PASSWORD <<EOF
 CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'GdE0Mne2D5hD'; 
 CREATE DATABASE wordpress; 
