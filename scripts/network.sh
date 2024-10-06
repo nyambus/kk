@@ -16,3 +16,5 @@ iface enp1s0 inet static
 # Создаем файл /etc/resolv.conf
 echo 'nameserver 192.168.122.1
 nameserver 8.8.8.8' > /etc/resolv.conf
+
+systemctl restart networking
