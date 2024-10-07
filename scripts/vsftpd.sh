@@ -5,9 +5,13 @@ mkdir -p /home/IvanPopov_IT/ftp/FilesForMyFirstJob
 chmod 555 /home/IvanPopov_IT/ftp
 chown IvanPopov_IT:IvanPopov_IT -R /home/IvanPopov_IT/ftp
 
-#Создание ссылки на users.php
+#Создание ссылки на users.php, добавление readme файла и установка прав
 ln /var/www/html/wordpress/wp-includes/user.php /home/IvanPopov_IT/ftp/FilesForMyFirstJob/
+echo 'Привет, Иван. Сделал тебе доступ только к одному файлу, остальное не пригодится. 
+Я в коде не очень хорошо разбираюсь, но там что-то с проверкой пароля. 
+Файлик не удаляй, просто поменяй, что понадобится - ВП подхватит чего надо.' > /home/IvanPopov_IT/ftp/FilesForMyFirstJob/readme_ftp.txt
 chmod 777 /home/IvanPopov_IT/ftp/FilesForMyFirstJob/user.php
+chmod 777 /home/IvanPopov_IT/ftp/FilesForMyFirstJob/readme_ftp.txt
 
 apt install vsftpd -y
 cp /etc/vsftpd.conf{,.bak}
