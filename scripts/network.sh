@@ -8,8 +8,10 @@ source /etc/network/interfaces.d/*
 
 auto lo
 iface lo inet loopback
-auto enp1s0
-iface enp1s0 inet static
+auto ens33
+iface ens33 inet dhcp
+auto ens36
+iface ens36 inet static
         address 192.168.122.205/24
         gateway 192.168.122.2' > /etc/network/interfaces
 
