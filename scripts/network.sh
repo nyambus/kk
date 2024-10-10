@@ -8,15 +8,14 @@ source /etc/network/interfaces.d/*
 
 auto lo
 iface lo inet loopback
-auto ens33
-iface ens33 inet dhcp
-auto ens36
-iface ens36 inet static
+
+auto enp1s0
+iface enp1s0 inet static
         address 192.168.122.205/24
-        gateway 192.168.122.2' > /etc/network/interfaces
+        gateway 192.168.122.1' > /etc/network/interfaces
 
 # Создаем файл /etc/resolv.conf
-echo 'nameserver 192.168.122.2
+echo 'nameserver 192.168.122.1
 nameserver 8.8.8.8' > /etc/resolv.conf
 
 systemctl restart networking
