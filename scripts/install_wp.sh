@@ -3,7 +3,7 @@
 apt-get update -y && apt-get upgrade -y
 
 # Установка Apache2
-apt install apache2 unzip nginx ssh -y
+apt install apache2 unzip nginx ssh wget -y
 
 # Установка PHP
 apt-get install php8.2 php8.2-cli php8.2-common php8.2-imap php8.2-redis php8.2-snmp php8.2-xml php8.2-mysqli php8.2-zip php8.2-mbstring php8.2-curl libapache2-mod-php -y
@@ -84,6 +84,6 @@ a2ensite wordpress.conf
 apachectl -t
 
 # Перезагрузка Apache
-systemctl reload apache2
-systemctl --now enable ssh
 systemctl --now disable nginx
+systemctl restart apache2
+systemctl --now enable ssh
