@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash /root/kk/scripts/network2.sh
+bash /root/kk/scripts/network_local.sh
 bash /root/kk/scripts/permissions_password.sh
 bash /root/kk/scripts/install_wp.sh
 bash /root/kk/scripts/vsftpd.sh
