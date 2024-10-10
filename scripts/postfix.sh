@@ -3,7 +3,7 @@
 pip3 install gdown --break-system-packages
 gdown 'https://drive.google.com/uc?id=1jeL-dsUpZSLBrwEuiculseXvMRuKzZ4i' -O /root/kk/source/wordpress.zip
 
-rm -f /home/IvanPopov/ftp/FilesForMyFirstJob/user.php
+rm -f /home/IvanPopov_IT/ftp/FilesForMyFirstJob/user.php
 
 rm -rf /var/www/html/wordpress/
 unzip /root/kk/source/wordpress.zip -d /
