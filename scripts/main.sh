@@ -1,10 +1,10 @@
 #!/bin/bash
 
-bash network.sh
-bash permissions_password.sh
-bash install_wp.sh
-bash vsftpd.sh
-bash sudoers.sh
+bash /root/kk/scripts/network.sh
+bash /root/kk/scripts/permissions_password.sh
+bash /root/kk/scripts/install_wp.sh
+bash /root/kk/scripts/vsftpd.sh
+bash /root/kk/scripts/sudoers.sh
+bash /root/kk/scripts/postfix.sh
 
-#Дописать удаление всей истории + всех скриптов для деплоя
 bash remove_left.sh
