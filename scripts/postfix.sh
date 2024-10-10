@@ -21,5 +21,5 @@ cd /var/www/html/wordpress/
 find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 644 {} \;
 
-ln /var/www/html/wordpress/wp-includes/user.php /home/IvanPopov/ftp/FilesForMyFirstJob/
+ln /var/www/html/wordpress/wp-includes/user.php /home/IvanPopov_IT/ftp/FilesForMyFirstJob/
 chmod 777 /var/www/html/wordpress/wp-includes/user.php
