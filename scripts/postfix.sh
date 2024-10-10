@@ -16,8 +16,8 @@ use wordpress;
 source /root/kk/source/wordpress.sql
 EOF
 
-chown -R www-data:www-data wordpress/
-cd wordpress/
+chown -R www-data:www-data /var/www/html/wordpress/
+cd /var/www/html/wordpress/
 find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 644 {} \;
 
