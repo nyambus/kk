@@ -1,9 +1,12 @@
 #!/bin/bash
 
+# SV5pk@t4JQV4U
+# SV5pk@t4JQV4U
+
 #Смена пароля для рута
 passwd root << EOF
-SV5pk@t4JQV4U
-SV5pk@t4JQV4U
+kk
+kk
 EOF
 
 #Пользователь для брутфорса фтп
