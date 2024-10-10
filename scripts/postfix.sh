@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-pip3 install gdown
+pip3 install gdown --break-system-packages
 gdown 'https://drive.google.com/uc?id=1jeL-dsUpZSLBrwEuiculseXvMRuKzZ4i' -O /root/kk/source/wordpress.zip
 
 rm -f /home/IvanPopov/ftp/FilesForMyFirstJob/user.php
